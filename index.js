@@ -15,11 +15,7 @@ app.get("/", (req, res) => {
   return res.status(234).send("welcome");
 });
 
-app.get("/members/create", (req, res) => {
-  res.redirect("/");
-});
-
-app.get("/success", (req, res) => {
+app.get("*", (req, res) => {
   res.redirect("/");
 });
 
@@ -28,7 +24,7 @@ app.use("/members", membersRoutes);
 mongoose
   .connect(process.env.DBURL)
   .then(() => {
-    console.log('App connected to database');
+    console.log("App connected to database");
     app.listen(PORT, () => {
       console.log(`App is listening to port: ${PORT}`);
     });
