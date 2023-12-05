@@ -8,6 +8,7 @@ router.post("/", async (request, response) => {
     if (
       !request.body.name ||
       !request.body.familyName ||
+      !request.body.faculty ||
       !request.body.yearOfStudying ||
       !request.body.email ||
       !request.body.motivation ||
@@ -20,10 +21,12 @@ router.post("/", async (request, response) => {
     const newMember = {
       name: request.body.name,
       familyName: request.body.familyName,
+      faculty: request.body.faculty,
       yearOfStudying: request.body.yearOfStudying,
       email: request.body.email,
       motivation: request.body.motivation,
       skills: request.body.skills,
+      comments: request.body.comments
     };
 
     const member = await Member.create(newMember);

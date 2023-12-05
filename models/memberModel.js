@@ -9,6 +9,10 @@ const memberSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  faculty: {
+    type: String,
+    required: true,
+  },
   yearOfStudying: {
     type: String,
     required: true,
@@ -26,6 +30,10 @@ const memberSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  comments: {
+    type: String,
+    required: false,
+  }
 });
 
 module.exports = mongoose.model("Member", memberSchema);
