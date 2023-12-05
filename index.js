@@ -15,11 +15,11 @@ app.get("/", (req, res) => {
   return res.status(234).send("welcome");
 });
 
+app.use("/members", membersRoutes);
+
 app.get("*", (req, res) => {
   res.redirect("/");
 });
-
-app.use("/members", membersRoutes);
 
 mongoose
   .connect(process.env.DBURL)
