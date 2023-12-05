@@ -15,6 +15,14 @@ app.get("/", (req, res) => {
   return res.status(234).send("welcome");
 });
 
+app.get("/members/create", (req, res) => {
+  res.redirect("/");
+});
+
+app.get("/success", (req, res) => {
+  res.redirect("/");
+});
+
 app.use("/members", membersRoutes);
 
 mongoose
