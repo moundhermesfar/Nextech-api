@@ -3,6 +3,20 @@ const Member = require("../models/memberModel.js");
 
 const router = express.Router();
 
+router.get('/', async (request, response) => {
+  try {
+    const members = await Member.find({});
+
+    return response.status(200).json({
+      count: members.length,
+      data: members,
+    });
+  } catch (error) {
+    console.log(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
 router.post("/", async (request, response) => {
   try {
     if (
