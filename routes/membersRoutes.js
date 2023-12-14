@@ -3,7 +3,7 @@ const Member = require("../models/memberModel.js");
 
 const router = express.Router();
 
-router.get('/', async (request, response) => {
+router.get("/", async (request, response) => {
   try {
     const members = await Member.find({});
 
@@ -40,7 +40,7 @@ router.post("/", async (request, response) => {
       email: request.body.email,
       motivation: request.body.motivation,
       skills: request.body.skills,
-      comments: request.body.comments
+      comments: request.body.comments,
     };
 
     const member = await Member.create(newMember);

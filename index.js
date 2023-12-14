@@ -17,10 +17,6 @@ app.get("/", (req, res) => {
 
 app.use("/members", membersRoutes);
 
-app.get("*", (req, res) => {
-  res.redirect("/");
-});
-
 mongoose
   .connect(process.env.DBURL)
   .then(() => {
