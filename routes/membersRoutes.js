@@ -5,8 +5,7 @@ const router = express.Router();
 
 router.get("/", async (request, response) => {
   try {
-    const members = await Member.find({});
-
+    const members = await Member.find({});  
     return response.status(200).json({
       count: members.length,
       data: members,
